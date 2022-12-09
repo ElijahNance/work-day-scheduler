@@ -10,10 +10,16 @@ $(function () {
     // useful when saving the description in local storage?
     // var buttonEl = $('button');
     // var userInput = $('textarea');
+   
+    $("button").click(function() {saveAppointment(this)});
 
-        function saveAppointment(appointmentID) {
-            localStorage.setItem(appointmentID, document.$(appointmentID).value);
-        };
+    var currTime = dayjs();
+        
+    
+   
+
+
+
     // TODO: Add code to apply the past, present, or future class to each time
     // block by comparing the id to the current hour. HINTS: How can the id
     // attribute of each time-block be used to conditionally add or remove the
@@ -23,6 +29,11 @@ $(function () {
     // TODO: Add code to get any user input that was saved in localStorage and set
     // the values of the corresponding textarea elements. HINT: How can the id
     // attribute of each time-block be used to do this?
+      
+    $('textarea').each(function(){
+      this.value=(localStorage.getItem(this.getAttribute("id")));
+      
+    })
     //
     // TODO: Add code to display the current date in the header of the page.
     var today = dayjs();
@@ -30,9 +41,23 @@ $(function () {
     //console.log(today);
   });
 
-  function saveAppointment(appointmentID) {
-    var testValue = document.getElementById(appointmentID);
-    console.log(testValue);
-    localStorage.setItem(appointmentID, document.getElementById(appointmentID).value);
-  };
+  //Need to find a way to access function through html
+  function saveAppointment(appointmentButton) {
+    var appointmentID = $(appointmentButton).data('appointmenthour');
+    //console.log($('#' + appointmentID).val());
+    localStorage.setItem(appointmentID, $('#' + appointmentID).val());
+};
+
+
+
+  // function saveAppointment(appointmentID) {
+  //   var testValue = document.getElementById(appointmentID);
+  //   console.log(testValue);
+  //   localStorage.setItem(appointmentID, document.getElementById(appointmentID).value);
+  // };
   
+  // function displayAppt(appointmentID) {
+  //   var apptData = localStorage.getItem(appointmentID);
+  //   var apptText = document.getElementById(appointmentID);
+  //   apptText.value = apptData; 
+  // }
