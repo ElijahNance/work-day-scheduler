@@ -1,6 +1,6 @@
 # work-day-scheduler
 
-[Link to my Project]
+[Link to my Project https://elijahnance.github.io/work-day-scheduler/](https://elijahnance.github.io/work-day-scheduler/)
 
 ## Table of Contents
 - [Description]
