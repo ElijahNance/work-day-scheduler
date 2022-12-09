@@ -11,15 +11,12 @@ $(function () {
       var testHour = parseInt(currID.substring(5));
 
       if (testHour < currHour) {
-        console.log(currID, testHour, currHour, 'past');
         $(this).addClass('past');
       }
       else if (testHour === currHour) {
-        console.log(currID, testHour, currHour, 'present');
         $(this).addClass('present');
       }
       else if (testHour > currHour) {
-        console.log(currID, testHour, currHour, 'future');
         $(this).addClass('future');
       }
     })
