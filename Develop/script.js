@@ -14,7 +14,45 @@ $(function () {
     $("button").click(function() {saveAppointment(this)});
 
     var currTime = dayjs();
-        
+    console.log(currTime);
+  
+    var currHour = dayjs().add(-6, 'hour').hour();
+    
+    console.log(typeof(currHour));
+    
+    
+    $('.time-block').each(function(){
+      var currID = this.getAttribute('id');
+      //console.log(typeof(parseInt(currID.substring(5))));
+      //console.log(currID);
+
+      var testHour = parseInt(currID.substring(5));
+
+      if (testHour < currHour) {
+        console.log(currID, testHour, currHour, 'past');
+        $(this).addClass('past');
+      }
+      else if (testHour === currHour) {
+        console.log(currID, testHour, currHour, 'present');
+        $(this).addClass('present');
+      }
+      else if (testHour > currHour) {
+        console.log(currID, testHour, currHour, 'future');
+        $(this).addClass('future');
+      }
+
+    //   if (parseInt(currID.substring(5)) < currHour){
+    //     console.log(parseInt(currID.substring(5)), currHour, 'past');
+    //   $(this).addClass('past');
+    // } else if (parseInt(currID.substring(5)) === currID ){
+    //   console.log(parseInt(currID.substring(5)), currHour, 'present');
+    //   $(this).addClass('present');
+    // } else if (parseInt(currID.substring(5)) > currID ){
+    //   console.log(parseInt(currID.substring(5)), currHour, 'future');
+    //   $(this).addClass('future');
+    // }  
+    })
+  
     
    
 
